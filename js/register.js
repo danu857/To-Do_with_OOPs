@@ -288,7 +288,7 @@ $(document).ready(function () {
                 timer: 1500,
                 showConfirmButton: false
             });
-            window.location.href = "../login.html";
+            window.location.href = "../pages/login.html";
         } 
 
         catch (error) {

@@ -112,7 +112,7 @@ $(document).ready(function () {
 
             console.log("Redirecting to dashboard...");
 
-            window.location.href = "../dashboard.html";
+            window.location.href = "../pages/dashboard.html";
 
         } catch (error) {
 
@@ -141,7 +141,7 @@ $(document).ready(function () {
     // Cancel
     $("#cancelBtn").on("click", function () {
 
-        window.location.href = "../index.html";
+        window.location.href = "../pages/index.html";
 
     });
 

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>ToDo Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body {
+            background: linear-gradient(
+                to right,
+                #000000,
+                rgb(20, 20, 109)
+            );
+
+            min-height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 30px 0;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-box {
+            background: rgba(17, 24, 39, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        /*
+        .btn-purple {
+            background: rgb(20, 20, 109);
+            color: white;
+            border: none;
+        }
+        */
+
+        .btn-purple:hover {
+            background: #6e82f1;
+            color: white;
+        }
+
+        .table {
+            color: white;
+        }
+
+        .table thead {
+            background: rgb(20, 20, 109);
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+        }
+
+        .completed {
+            /* color: lightgreen; */
+            font-weight: bold;
+        }
+
+        .nav-tabs .nav-link {
+            color: white;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .offcanvas {
+            background: #111827;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .glass-modal {
+            background: rgba(17, 24, 39, 0.95);
+            color: white;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .custom-input {
+            background: #1f2937;
+            border: 1px solid #374151;
+            color: white;
+        }
+
+        .custom-input:focus {
+            background: #1f2937;
+            border-color: #6e82f1;
+            box-shadow: none;
+            color: white;
+        }
+
+        .custom-input::placeholder {
+            color: #cad2e0;
+        }
+
+        .form-select option {
+            color: black;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .badge {
+            padding: 8px 12px;
+        }
+
+        .table-responsive {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .table tbody tr {
+            transition: 0.3s;
+        }
+
+        .table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .btn {
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        #themeToggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        /* LIGHT MODE */
+
+        body.light-mode {
+            background: linear-gradient(
+                135deg,
+                #f5f7ff,
+                #dbe4ff
+            );
+
+            color: #111827;
+        }
+
+        .light-mode .dashboard-box {
+            background-image: linear-gradient(
+                135deg,
+                #9796f0 10%,
+                #FBC7D4 100%
+            );
+
+            color: white;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 30px rgba(56, 19, 194, 0.25);
+        }
+
+        .light-mode .navbar {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        .light-mode .navbar-brand {
+            color: #111827 !important;
+        }
+
+        .light-mode .table {
+            color: #111827;
+        }
+
+        .light-mode .table thead {
+            background: #4361ee;
+            color: white;
+        }
+
+        .light-mode .table tbody tr:hover {
+            background: #eef2ff;
+        }
+
+        .light-mode .nav-tabs .nav-link {
+            color: #374151;
+        }
+
+        .light-mode .custom-input {
+            background: white;
+            color: #111827;
+            border: 1px solid #dbe4ff;
+        }
+
+        .light-mode .custom-input:focus {
+            background: white;
+            color: #111827;
+            border-color: #4361ee;
+            box-shadow: none;
+        }
+
+        .light-mode .glass-modal {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            color: #111827;
+        }
+
+        .light-mode .offcanvas {
+            background: rgba(255, 255, 255, 0.95);
+            color: #111827;
+        }
+
+        .light-mode .btn-purple {
+            background: #4361ee;
+            color: white;
+        }
+
+        .light-mode .btn-purple:hover {
+            background: #3651d4;
+        }
+
+        .light-mode .completed {
+            color: #16a34a;
+        }
+
+        .light-mode .form-label {
+            color: #111827;
+        }
+
+        .light-mode .btn-close {
+            filter: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="dashboard-box">
+            <!-- NAVBAR -->
+            <nav class="navbar navbar-dark rounded-4 px-4 py-3 mb-4">
+                <div class="container-fluid">
+                    <h2 class="navbar-brand fw-bold">
+                        Task Board
+                    </h2>
+                    <div class="d-flex gap-3">
+                        <!-- ADD TASK -->
+                        <button class="btn btn-light" data-bs-target="#taskModal" data-bs-toggle="modal">
+                            <i class="bi bi-plus-circle"></i>Add Task
+                        </button>
+
+                        <!-- PROFILE -->
+                        <button class="btn btn-light rounded-circle" data-bs-target="#profileCanvas" data-bs-toggle="offcanvas" style="width:50px;height:50px;">
+                            <i class="bi bi-person-fill fs-4"></i>
+                        </button>
+
+                        <!-- THEME -->
+                        <button class="btn btn-light" id="themeToggle">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+
+                        <!-- LOGOUT -->
+                        <button class="btn btn-danger" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- FILTERS -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <select
+                        class="form-select custom-input"
+                        id="priorityFilter">
+                        <option value="all">Filter By Priority</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <input class="form-control custom-input" id="searchTask" placeholder="Search task..." type="text">
+                </div>
+
+                <div class="d-flex gap-2">
+                    <div class="w-100">
+                        <small>From Date</small>
+                        <input class="form-control custom-input" id="fromDate" type="date">
+                    </div>
+
+                    <div class="w-100">
+                        <small>To Date</small>
+                        <input
+                            class="form-control custom-input"
+                            id="toDate"
+                            type="date">
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABS -->
+            <ul class="nav nav-tabs mb-4 flex-wrap gap-2">
+                <li class="nav-item">
+                    <button
+                        class="nav-link active"
+                        data-filter="alltasks">All Tasks
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" data-filter="notstarted">
+                        Not Started
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" data-filter="pending">
+                        Pending
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" data-filter="completed">
+                        Completed
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" data-filter="overdue">
+                        Overdue
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link" data-filter="deleted">
+                        Deleted
+                    </button>
+                </li>
+            </ul>
+
+            <!-- TABLE -->
+            <div class="table-responsive">
+                <table class="table table-bordered text-center align-middle">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Description</th>
+                            <th>Priority</th>
+                            <th>Created Date</th>
+                            <th>Due Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="taskTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- TASK MODAL -->
+    <div class="modal fade" id="taskModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title">
+                        Add New Task
+                    </h4>
+                    <button class="btn-close btn-close-white"data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="taskForm">
+                        <!-- TASK NAME -->
+                        <div class="mb-3">
+                            <label class="form-label">Task Name</label>
+                            <input class="form-control custom-input" id="taskName" placeholder="Enter task name" required type="text">
+                        </div>
+
+                        <!-- TASK DESCRIPTION -->
+                        <div class="mb-3">
+                            <label class="form-label">Task Description</label>
+
+                            <textarea class="form-control custom-input"
+                                id="taskDescription"
+                                placeholder="Enter task description"
+                                required
+                                rows="4">
+                            </textarea>
+                        </div>
+
+                        <!-- PRIORITY -->
+                        <div class="mb-3">
+                            <label class="form-label">Priority</label>
+                            <select class="form-select custom-input" id="taskPriority" required>
+                                <option value="">Select Priority</option>
+                                <option>High</option>
+                                <option>Medium</option>
+                                <option>Low</option>
+                            </select>
+                        </div>
+
+                        <!-- DATES -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Task Added Date</label>
+                                <input class="form-control custom-input" id="taskDate" readonly type="date">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Due Date</label>
+                                <input class="form-control custom-input" id="dueDate" required type="date">
+                            </div>
+                        </div>
+
+                        <!-- SAVE BUTTON -->
+                        <div class="text-end">
+
+                            <button class="btn btn-success px-4" type="submit">
+                                Save Task
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFILE OFFCANVAS -->
+    <div class="offcanvas offcanvas-end" id="profileCanvas"tabindex="-1">
+        <div class="offcanvas-header">
+            <h4>User Profile</h4>
+            <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas" type="button"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <div class="text-center mb-4">
+                <i class="bi bi-person-circle" style="font-size:100px;"></i>
+            </div>
+            <hr>
+
+            <p>
+                <strong>Name:</strong>
+                <span id="profileName"></span>
+            </p>
+
+            <p>
+                <strong>Username:</strong>
+                <span id="profileUsername"></span>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <span id="profileEmail"></span>
+            </p>
+
+            <p>
+                <strong>Contact:</strong>
+                <span id="profileContact"></span>
+            </p>
+
+            <p>
+                <strong>Age:</strong>
+                <span id="profileAge"></span>
+            </p>
+
+            <p>
+                <strong>Nationality:</strong>
+                <span id="profileNationality"></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../js/common.js"></script>
+    <script src="../js/task.js"></script>
+    <script src="../js/dashboard.js"></script>
+
+</body>
+</html>

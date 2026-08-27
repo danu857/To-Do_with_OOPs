@@ -3,7 +3,7 @@ $(document).ready(function () {
     const loggedInUser = getCurrentUser();
 
     if (!loggedInUser) {
-        window.location.href = "login.html";
+        window.location.href = "../pages/login.html";
         return;
     }
 
