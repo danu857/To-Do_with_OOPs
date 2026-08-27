@@ -1,0 +1,263 @@
+{
+  "users": [
+    {
+      "firstName": "Danu",
+      "lastName": "sree",
+      "username": "danu.ks",
+      "email": "ksd@gmail.com",
+      "password": "$2b$10$CC/JctNFBRjolbfF0R9kxOTKP6.o93.iL//h8VDudy2tskg.O2l/a",
+      "contact": "9876543210",
+      "dob": "2005-05-26",
+      "age": "22",
+      "nationality": "Indian",
+      "id": "ir3Xi_5H08s"
+    },
+    {
+      "firstName": "hari",
+      "lastName": "prasad",
+      "username": "hari",
+      "email": "hari@gmail.com",
+      "password": "$2b$10$ie7nxGGWTUVfx9WOgEIor.gsbM/lem18cIn4326ltDFeOBBdUaoMu",
+      "contact": "9876543211",
+      "dob": "2003-03-15",
+      "age": "24",
+      "nationality": "Indian",
+      "id": "Fs4tbP9S2WA"
+    },
+    {
+      "firstName": "D",
+      "lastName": "Seeli",
+      "username": "Seeli",
+      "email": "seeli@gmail.com",
+      "password": "$2b$10$9Gn.wYZvlmMFLYjLVem9N.6lrMp8Bv4PVrU62f2wYQ0oPTM94Y6my",
+      "contact": "1234367890",
+      "dob": "2026-05-29",
+      "age": "1890",
+      "nationality": "Indian",
+      "gender": "Female",
+      "id": "RMc3OitdVuc"
+    },
+    {
+      "firstName": "Sindhuja",
+      "lastName": "S",
+      "username": "sindu",
+      "email": "sindhu@gmail.com",
+      "password": "$2b$10$TNcSxJn8ZLcL8I3P0JRw7.Qu/It40Pw1DpB43RuVvXtaWCI.o3kfG",
+      "contact": "8765543219",
+      "dob": "2006-06-10",
+      "age": 19,
+      "nationality": "Indian",
+      "gender": "Female",
+      "skills": [
+        "HTML",
+        "CSS",
+        "Python"
+      ],
+      "id": "AO_Ag9hFhqo"
+    },
+    {
+      "firstName": "Devasree",
+      "lastName": "K",
+      "username": "Devasree",
+      "email": "devasree@gmail.com",
+      "password": "$2b$10$JY4R5kdsOD0TE3Z.Le1YMu.015jgmR0KKCrA98Lh3mSBIGkzW00vC",
+      "contact": "8907654561",
+      "dob": "2006-06-17",
+      "age": 19,
+      "nationality": "Indian",
+      "gender": "Female",
+      "skills": [
+        "HTML",
+        "CSS"
+      ],
+      "id": "LUFKfhT0Fgs"
+    },
+    {
+      "firstName": "Daha",
+      "lastName": "K",
+      "username": "Daha",
+      "email": "daha@gmail.com",
+      "password": "$2b$10$ww9Cvbb4rUMlCu78dgQeL.XyFu4W43ZUVDnNbyh8kLTjzMhdVElBW",
+      "contact": "6789092345",
+      "dob": "2009-02-26",
+      "age": "17",
+      "nationality": "Indian",
+      "gender": "Female",
+      "skills": [
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "Python"
+      ],
+      "id": "iESXe26Zeek"
+    },
+    {
+      "firstName": "Raga",
+      "lastName": "R",
+      "username": "Ragavi",
+      "email": "ragavi@gmail.com",
+      "password": "$2b$10$NefSryG0KJe4O0AiZH9vgup1hlQEvS2R1sRNLIWzYsO6UE4LNt3iG",
+      "contact": "6789092344",
+      "dob": "2005-04-26",
+      "age": "21",
+      "nationality": "Indian",
+      "gender": "Female",
+      "skills": [
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "Python"
+      ],
+      "id": "gzpK1lH4mmE"
+    },
+    {
+      "firstName": "Tejasree",
+      "lastName": "A",
+      "username": "Teja",
+      "email": "tejasree@gmail.com",
+      "password": "$2b$10$mZdNHhhI4kritu./TTkcQurTJDy97h7n3Ek9TacLyO2WQEQd2Dz0e",
+      "contact": "6789992344",
+      "dob": "2012-04-26",
+      "age": "14",
+      "nationality": "Indian",
+      "gender": "Female",
+      "skills": [
+        "HTML"
+      ],
+      "id": "8_REHgtMLI8"
+    }
+  ],
+  "tasks": [
+    {
+      "username": "hari",
+      "taskName": "study task",
+      "date": "2026-05-30",
+      "priority": "Medium",
+      "completed": true,
+      "deleted": false,
+      "id": "4R84i4MzJMA"
+    },
+    {
+      "username": "hari",
+      "taskName": "Complete quotations",
+      "date": "2026-05-27",
+      "priority": "High",
+      "completed": true,
+      "deleted": false,
+      "id": "LKTq3eNACQA"
+    },
+    {
+      "username": "Devasree",
+      "taskName": "Sql task5",
+      "date": "2026-05-27",
+      "priority": "Medium",
+      "completed": true,
+      "deleted": false,
+      "id": "HBs2ow3I-2M"
+    },
+    {
+      "username": "Seeli",
+      "taskName": "Give task",
+      "date": "2026-05-28",
+      "priority": "Medium",
+      "completed": false,
+      "deleted": false,
+      "id": "FnOhuLf2riM"
+    },
+    {
+      "username": "danu.ks",
+      "taskName": "sql",
+      "description": "complete the task",
+      "priority": "Medium",
+      "taskDate": "2026-05-29",
+      "dueDate": "2026-05-31",
+      "completed": true,
+      "deleted": false,
+      "id": "z7x14BSAZBA"
+    },
+    {
+      "username": "hari",
+      "taskName": "speak to dk",
+      "description": "call dk on sunday",
+      "priority": "Medium",
+      "taskDate": "2026-05-29",
+      "dueDate": "2026-05-31",
+      "completed": false,
+      "deleted": false,
+      "id": "enuoWBIiaOc"
+    },
+    {
+      "username": "danu.ks",
+      "taskName": "MongoDB",
+      "description": "complete mongoDB",
+      "priority": "High",
+      "taskDate": "2026-05-30",
+      "dueDate": "2026-06-01",
+      "status": "pending",
+      "completed": true,
+      "deleted": false,
+      "id": "PYgxhwWj0zs"
+    },
+    {
+      "username": "danu.ks",
+      "taskName": "mongoDB",
+      "description": "complete mongo DB",
+      "priority": "High",
+      "taskDate": "2026-05-31",
+      "dueDate": "2026-06-02",
+      "status": "pending",
+      "completed": false,
+      "deleted": true,
+      "id": "dTSKE58Bx8k"
+    },
+    {
+      "username": "danu.ks",
+      "taskName": "check things",
+      "description": "check the things required for office and arrange it",
+      "priority": "Medium",
+      "taskDate": "2026-05-31",
+      "dueDate": "2026-06-02",
+      "status": "pending",
+      "completed": false,
+      "deleted": false,
+      "id": "S0Cz8_jpJu0"
+    },
+    {
+      "username": "danu.ks",
+      "taskName": "Learning",
+      "description": "Learn for Assessment",
+      "priority": "High",
+      "taskDate": "2026-06-01",
+      "dueDate": "2026-06-06",
+      "status": "pending",
+      "completed": false,
+      "deleted": false,
+      "id": "Uh7anDSYIMI"
+    },
+    {
+      "username": "danu.ks",
+      "taskName": "SQL Task",
+      "description": "SQL Hospital management system",
+      "priority": "Medium",
+      "taskDate": "2026-06-01",
+      "dueDate": "2026-06-04",
+      "status": "pending",
+      "completed": false,
+      "deleted": false,
+      "id": "tdm9wncypBY"
+    },
+    {
+      "username": "Ragavi",
+      "taskName": "Learn",
+      "description": "Learn Data Structures",
+      "priority": "High",
+      "taskDate": "2026-08-27",
+      "dueDate": "2026-08-31",
+      "status": "notstarted",
+      "completed": false,
+      "deleted": false,
+      "id": "nkLh0WN5ToQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
